@@ -1,0 +1,156 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background:
+		/* land */
+		linear-gradient(0deg,#113f66 1.5em,#113f6600 1.5em),
+		/* snow part of moutain */
+		radial-gradient(100% 100% at center,#e1ecf4 49%,#e1ecf400 50%) calc(50% - 10em) calc(100% - 12em) / 14em 8em,
+		radial-gradient(100% 200% at 50% 150%,#e1ecf4 49.75%,#e1ecf400 50%) calc(50% - 10em) calc(100% - 11em) / 55.5em 16em,
+		radial-gradient(100% 200% at 50% 0%,#e1ecf4 49.75%,#e1ecf400 50%) calc(50% - 10em) calc(100% - 8em) / 48em 3em,
+		/* mountain */
+		radial-gradient(100% 100% at center,#5d6d7e 49.75%,#5d6d7e00 50%) calc(50% - 10em) calc(100% + 61em) / 80em 80em,
+		/* clouds */
+		radial-gradient(100% 100% at center,#fff 49%,#fff0 50%) calc(50% - 26em) calc(100% - 26em) / 12em 2em,
+		radial-gradient(100% 100% at center,#fff 49%,#fff0 50%) calc(50% - 12em) calc(100% - 23em) / 12em 2em,
+		radial-gradient(100% 100% at center,#fff 49%,#fff0 50%) calc(50% - 6em) calc(100% - 24em) / 12em 2em,
+		radial-gradient(100% 100% at center,#fff 49%,#fff0 50%) calc(50% + 18em) calc(100% - 12em) / 18em 6em,
+		radial-gradient(100% 100% at center,#fff 49%,#fff0 50%) calc(50% + 24em) calc(100% - 15em) / 18em 6em,
+		radial-gradient(100% 100% at center,#fff 49%,#fff0 50%) calc(50% + 34em) calc(100% - 12em) / 18em 6em,
+		radial-gradient(100% 100% at center,#fff 49%,#fff0 50%) calc(50% + 26em) calc(100% - 10em) / 18em 6em,
+		/* sun */
+		radial-gradient(100% 100% at center,#facd15 49.5%,#facd1500 50%) calc(50% - 18em) calc(100% - 22em) / 12em 12em,
+		/* sky */
+		linear-gradient(0deg,#86c1e9 20em,#7fb6db 20em 40em,#77abce 40em);
+	background-repeat: no-repeat;
+	font-size: 10px;
+	height: 100vh;
+}
+main {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	width: 20em;
+	height: 10em;
+	transform: translateX(-50%);
+}
+
+/* Layers */
+.layer {
+	position: absolute;
+}
+.layer > div {
+	margin: auto;
+	transform-origin: 50% 100%;
+}
+.layer__roof {
+	background: linear-gradient(90deg,#37678d 50%,#10406f 50%);
+	clip-path: polygon(20% 0%,80% 0%,100% 100%,0% 100%);
+	-webkit-clip-path: polygon(20% 0%,80% 0%,100% 100%,0% 100%);
+	width: 20em;
+	height: 3em;
+	transition:
+		clip-path 0.15s ease-out,
+		-webkit-clip-path 0.15s ease-out;
+}
+.layer__middle {
+	background:
+		/* side */
+		linear-gradient(90deg,#0000 50%,#0004 50%),
+		/* front left */
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 0.2em 0.7em / 1.3em 0.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 0.2em 1.7em / 1.3em 1.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 0.2em 3.7em / 1.3em 1.7em,
+		/* front middle */
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 2em 0.7em / 1.4em 0.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 1.8em 1.7em / 1.8em 4em,
+		/* front right */
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 3.9em 0.7em / 1.4em 0.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 3.9em 1.7em / 1.4em 1.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 3.9em 3.7em / 1.4em 1.7em,
+		/* side left */
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 5.7em 0.7em / 2.4em 0.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 5.7em 1.7em / 2.4em 1.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 5.7em 3.7em / 2.4em 1.7em,
+		/* side right */
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 8.4em 0.7em / 2.4em 0.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 8.4em 1.7em / 2.4em 1.7em,
+		linear-gradient(#bf2f2f 0.1em,#fff 0.1em) 8.4em 3.7em / 2.4em 1.7em,
+		/* outer */
+		linear-gradient(#bf2f2f 0.5em,#fa3e3e 0.5em);
+	background-repeat: no-repeat;
+	width: 11em;
+	height: 6em;
+}
+.layer__base {
+	background:
+		linear-gradient(90deg,#0000 50%,#0003 50%),
+		#ee9366;
+	width: 12em;
+	height: 1em;
+}
+.layer:first-of-type .layer__base {
+	background:
+		linear-gradient(90deg,#0004 25%,#0002 25%) 2em 0 / 2em 0.5em,
+		linear-gradient(90deg,#0000 50%,#0003 50%),
+		#ee9366;
+	background-repeat: no-repeat;
+}
+
+/* Layer states */
+.layer--show .layer__roof {
+	animation: popOutA 0.15s ease-out forwards;
+	animation-delay: 0.45s;
+	transform: scale(0.55,0);
+}
+.layer--show .layer__middle,
+.layer--show .layer__base {
+	animation: popOutB 0.15s ease-out forwards;
+	transform: scale(1,0);
+}
+.layer--hide .layer__roof {
+	animation: popOutA 0.15s ease-out reverse forwards;
+}
+.layer--hide .layer__middle, 
+.layer--hide .layer__base {
+	animation: popOutB 0.15s ease-out reverse forwards;
+}
+.layer--show .layer__middle,
+.layer--hide .layer__base {
+	animation-delay: 0.3s;
+}
+.layer--show .layer__base,
+.layer--hide .layer__middle {
+	animation-delay: 0.15s;
+}
+.layer--hide .layer__roof,
+.layer--hide .layer__middle, 
+.layer--hide .layer__base,
+.layer--show.layer--pristine div {
+	transform: scale(1,1);
+}
+.layer--top .layer__roof {
+	clip-path: polygon(50% 0%,50% 0%,100% 100%,0% 100%);
+	-webkit-clip-path: polygon(50% 0%,50% 0%,100% 100%,0% 100%);
+	transition-delay: 0.3s;
+}
+.layer--show.layer--pristine div {
+	animation: none;
+}
+
+/* Animations */
+@keyframes popOutA {
+	from { transform: scale(0.55,0) }
+	33% { transform: scale(0.55,1.2) }
+	67% { transform: scale(1.2,0.9) }
+	to { transform: scale(1,1) }
+}
+@keyframes popOutB {
+	from { transform: scale(1,0) }
+	50% { transform: scale(1,1.2) }
+	to { transform: scale(1,1) }
+}
